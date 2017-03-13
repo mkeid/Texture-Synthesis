@@ -126,9 +126,11 @@ with tf.Session() as sess:
 
     # Initialize and process art image to be used for our texture
     texture, image_shape = utils.load_image(TEXTURE_PATH)
+    image_shape = [1] + image_shape
+    texture = texture.reshape(image_shape).astype(np.float32)
 
     # Initialize the variable image that will become our final output as random noise
-    noise = tf.Variable(tf.truncated_normal(image_shape, mean=.5, stddev=.1))
+    noise = tf.Variable(tf.truncated_normal(image_shape, mean=.5, stddev=.1), dtype=tf.float32)
 
     with tf.name_scope('vgg_texture'):
         texture_model = vgg19.Vgg19()
