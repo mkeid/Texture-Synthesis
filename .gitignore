@@ -1,0 +1,10 @@
+deprecated
+*.npy
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.idea
+*.log
+.DS_Store
+output/
