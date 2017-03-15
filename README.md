@@ -1,6 +1,6 @@
 # *Texture-Synthesis* implemented in TensorFlow
 
-<img src="lib/images/cover.jpg" height="480px" width="640px" align="right">
+<img src="lib/images/cover.jpg" height="320px" width="427px" align="right">
 
 This is a TensorFlow implementation of *[Texture Synthesis Using Convolutional Neural
 Networks](https://arxiv.org/pdf/1505.07376v3.pdf)* using [total variation denoising](http://eeweb.poly.edu/iselesni/lecture_notes/TVDmm/TVDmm.pdf) as a regularizer. A pretrained [VGG network](https://arxiv.org/pdf/1409.1556.pdf) was used. It is provided [here](https://github.com/machrisaa/tensorflow-vgg) by [machrisaa](https://github.com/machrisaa) on GitHub. The VGG implementation was customized to accomodate the implementation requirements and is of the 19-layer variety.
