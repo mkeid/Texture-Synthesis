@@ -14,23 +14,23 @@ The purpose of this repository is to port the texture-synthesizing algorithm to 
 <table style="width:100%">
   <tr>
     <th>Input</th> 
-    <th>Synthesized Sample</th>
-    <th>Synthesized Sample</th>
+    <th>Synthesized Sample 1</th>
+    <th>Synthesized Sample 2</th>
   </tr>
   <tr>
-    <td><img src="./lib/images/grass.jpg" width="100%" height="480px"></td>
-    <td><img src="./lib/images/grass_sample1.jpg" width=100%" height="480px"></td> 
-    <td><img src="./lib/images/grass_sample2.jpg" width=100%" height="480px"></td> 
+    <td><img src="./lib/images/grass.jpg" width="100%" height="240px"></td>
+    <td><img src="./lib/images/grass_sample1.jpg" width="100%" height="240px"></td> 
+    <td><img src="./lib/images/grass_sample2.jpg" width="100%" height="240px"></td> 
   </tr>
   <tr>
-    <td><img src="./lib/images/sky.jpg" width="100%" height="480px"></td>
-    <td><img src="./lib/images/sky_sample1.jpg" width="100%" height="480px"></td> 
-    <td><img src="./lib/images/sky_sample2.jpg.jpg" width=100%" height="480px"></td> 
+    <td><img src="./lib/images/sky.jpg" width="100%" height="240px"></td>
+    <td><img src="./lib/images/sky_sample1.jpg" width="100%" height="240px"></td> 
+    <td><img src="./lib/images/sky_sample2.jpg" width="100%" height="240px"></td> 
   </tr>
   <tr>
-    <td><img src="./lib/images/wood.jpg" width="100%" height="480px"></td>
-    <td><img src="./lib/images/wood_sample1.jpg" width="100%" height="480px"></td> 
-    <td><img src="./lib/images/wood_sample2.jpg" width=100%" height="480px"></td> 
+    <td><img src="./lib/images/wood.jpg" width="100%" height="240px"></td>
+    <td><img src="./lib/images/wood_sample1.jpg" width="100%" height="240px"></td> 
+    <td><img src="./lib/images/wood_sample2.jpg" width="100%" height="240px"></td> 
   </tr>
 </table>
 
