@@ -40,6 +40,7 @@ if not os.path.isdir(log_dir):
     print('Directory "%s" was created for logging.' % log_dir)
 log_path = ''.join([log_dir, str(time.time()), '.log'])
 logging.basicConfig(filename=log_path, level=logging.INFO)
+print("Printing log to %s" % log_path)
 
 
 # Given an activated filter maps of any particular layer, return its respected gram matrix
