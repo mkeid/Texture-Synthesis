@@ -113,13 +113,16 @@ def parse_args():
     global TEXTURE_PATH, OUT_PATH
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("texture", help="path to the image you'd like to resample")
-    parser.add_argument("--out", default=OUT_PATH, help="path to where the generated image will be created")
+    parser.add_argument("texture",
+        help="path to the image you'd like to resample")
+    parser.add_argument("--output",
+        default=OUT_PATH,
+        help="path to where the generated image will be created")
     args = parser.parse_args()
 
     # Assign image paths from the arg parsing
     TEXTURE_PATH = os.path.realpath(args.texture)
-    OUT_PATH = os.path.realpath(args.out)
+    OUT_PATH = os.path.realpath(args.output)
 
 
 with tf.Session() as sess:
@@ -130,8 +133,9 @@ with tf.Session() as sess:
     image_shape = [1] + image_shape
     texture = texture.reshape(image_shape).astype(np.float32)
 
-    # Initialize the variable image that will become our final output as random noise
-    noise = tf.Variable(tf.truncated_normal(image_shape, mean=.5, stddev=.1), dtype=tf.float32)
+    # Initialize variable image that'll become our final output as random noise
+    noise_init = tf.truncated_normal(image_shape, mean=.5, stddev=.1)
+    noise = tf.Variable(noise_init, dtype=tf.float32)
 
     with tf.name_scope('vgg_texture'):
         texture_model = vgg19.Vgg19()
@@ -147,7 +151,8 @@ with tf.Session() as sess:
         if TEXTURE_WEIGHT is 0:
             texture_loss = tf.constant(0.)
         else:
-            texture_loss = get_texture_loss(x_model, texture_model) * TEXTURE_WEIGHT
+            unweighted_texture_loss = get_texture_loss(x_model, texture_model)
+            texture_loss = unweighted_texture_loss * TEXTURE_WEIGHT
 
         # Norm regularization
         if NORM_WEIGHT is 0:

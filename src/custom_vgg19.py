@@ -7,8 +7,8 @@ import urllib.request
 VGG_MEAN = [103.939, 116.779, 123.68]
 data = None
 dir_path = os.path.dirname(os.path.realpath(__file__))
-weights_name = dir_path + "/../lib/weights/vgg19.npy"
-weights_url = "https://www.dropbox.com/s/68opci8420g7bcl/vgg19.npy?dl=1"
+weights_name = os.path.abspath(dir_path + "/../lib/weights/vgg19.npy")
+weights_url = "https://mega.nz/#!YU1FWJrA!O1ywiCS2IiOlUCtCpI6HTJOMrneN-Qdv3ywQP5poecM"
 
 
 class Vgg19:
@@ -23,20 +23,10 @@ class Vgg19:
             if os.path.exists(path):
                 vgg19_npy_path = path
             else:
-                print("VGG19 weights were not found in the project directory")
-
-                answer = 0
-                while answer is not 'y' and answer is not 'N':
-                    answer = input("Would you like to download the 548 MB file? [y/N] ").replace(" ", "")
-
-                # Download weights if yes, else exit the program
-                if answer == 'y':
-                    print("Downloading. Please be patient...")
-                    urllib.request.urlretrieve(weights_url, weights_name)
-                    vgg19_npy_path = path
-                elif answer == 'N':
-                    print("Exiting the program..")
-                    exit(0)
+                print("VGG19 weights were not found in the project directory!")
+                print("Please download the .npy file from: %s" % weights_url)
+                print("The file should be placed as '%s'" % weights_name)
+                exit(0)
 
         if data is None:
             data = np.load(vgg19_npy_path, encoding='latin1')
@@ -96,10 +86,12 @@ class Vgg19:
         self.data_dict = None
 
     def avg_pool(self, bottom, name):
-        return tf.nn.avg_pool(bottom, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME', name=name)
+        return tf.nn.avg_pool(bottom,
+            ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME', name=name)
 
     def max_pool(self, bottom, name):
-        return tf.nn.max_pool(bottom, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME', name=name)
+        return tf.nn.max_pool(bottom,
+            ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME', name=name)
 
     def conv_layer(self, bottom, name):
         with tf.variable_scope(name):
