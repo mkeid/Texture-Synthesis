@@ -8,7 +8,7 @@ VGG_MEAN = [103.939, 116.779, 123.68]
 data = None
 dir_path = os.path.dirname(os.path.realpath(__file__))
 weights_name = os.path.abspath(dir_path + "/../lib/weights/vgg19.npy")
-weights_url = "https://mega.nz/#!YU1FWJrA!O1ywiCS2IiOlUCtCpI6HTJOMrneN-Qdv3ywQP5poecM"
+weights_url = "https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8mvkuSa2YcA7q-1ehfSm-Q1fxOvvs"
 
 
 class Vgg19:
